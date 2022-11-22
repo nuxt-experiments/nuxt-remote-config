@@ -23,10 +23,15 @@ export default defineNuxtPlugin(async (nuxtApp) => {
   }
 
   if (process.client) {
-    if (!nuxtApp.payload.serverRendered || nuxtApp.payload.prerenderedAt || !nuxtApp.payload.appConfig) {
-      await pullConfig()
-    } else if (nuxtApp.payload.appConfig) {
+    if (nuxtApp.payload.appConfig) {
       _updateConfig(nuxtApp.payload.appConfig)
+    }
+    if (nuxtApp.payload.prerenderedAt) {
+      nuxtApp.hook('app:mounted', async () => {
+        await pullConfig()
+      })
+    } else if (!nuxtApp.payload.serverRendered || !nuxtApp.payload.appConfig) {
+      await pullConfig()
     }
   }
 
