@@ -22,7 +22,7 @@ npm i -D nuxt-remote-config
 pnpm add -D nuxt-remote-config
 
 # yarn
-yarn add nuxt-remote-config
+yarn add -D nuxt-remote-config
 ```
 
 2. Add module to `nuxt.config`:
