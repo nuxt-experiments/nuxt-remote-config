@@ -1,3 +1,6 @@
+> [!NOTE]
+> This repository is archived. It was an experiment and is no longer maintained.
+
 # Nuxt Remote Config
 
 [Under Development]
